@@ -1,0 +1,28 @@
+<h1>Edit Shoe</h1>
+<form action="/shoe/edit/:id" method="post">
+  <div class='form-group'>
+    <label for="shoe">Enter a brand name:</label>
+    <input class='form-control' type="text" name="brand" placeholder='Nike'><br>
+  </div>
+
+  <h4>Select store(s) to carry this brand:</h4>
+  <div>
+    <% if @stores.any? %>
+      <% @stores.each do |store| %>
+        <div class='checkbox'>
+          <label>
+            <input type='checkbox' name='store_ids[]' value='<% store.id %>'> <%= store.name %>
+          </label>
+        </div>
+      <% end %>
+    <% end %>
+  </div><br>
+  <% if @not_saved == true %>
+    <div class="alert alert-danger">
+      <h1>Did Not Save, Shoe Already Exists</h1>
+    </div>
+  <% end %>
+
+  <button type="submit" class='btn btn-info'>Create!</button><br>
+  <a href='/'>Take me home tonight</a>
+</form>

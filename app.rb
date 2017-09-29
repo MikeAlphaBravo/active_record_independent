@@ -33,7 +33,21 @@ get('/shoe/:id') do
   erb(:shoe)
 end
 
-get ('/shoe/delete/:id') do
+get('/shoe/edit/:id') do
+  @shoe = Shoe.find(params['id'])
+  @stores = Store.all
+  Shoe.find(params['id'])
+  erb(:edit_shoe)
+end
+
+post('/shoe/edit/:id') do
+  store_ids = params['store_ids']
+  brand = params['brand']
+  Shoe.update({:store_ids => store_ids, :brand => brand})
+  redirect('/')
+end
+
+get('/shoe/delete/:id') do
   Shoe.find(params['id']).destroy
   redirect('/')
 end
@@ -59,6 +73,20 @@ end
 get('/store/:id') do
   @store = Store.find(params['id'])
   erb(:store)
+end
+
+get('/store/edit/:id') do
+  @store = Store.find(params['id'])
+  @shoes = Shoe.all
+  Store.find(params['id'])
+  erb(:edit_store)
+end
+
+post('/store/edit/:id') do
+  shoe_ids = params['shoe_ids']
+  name = params['name']
+  Store.update({:shoe_ids => shoe_ids, :name => name})
+  redirect('/')
 end
 
 get ('/store/delete/:id') do
