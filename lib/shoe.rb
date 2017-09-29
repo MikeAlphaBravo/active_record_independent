@@ -10,8 +10,4 @@ private
   def titlecase_brand
     self.brand=(brand.titlecase)
   end
-
-  # def currency_price
-  #   self.price=(price.currency)
-  # end
 end

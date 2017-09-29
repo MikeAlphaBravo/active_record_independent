@@ -10,7 +10,10 @@
         <div class="col-md-3">
           <li><a href="/shoe/<%= shoe.id %>"><%= shoe.brand %></a></li>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-1">
+          <h5>$<%= shoe.price %></h5>
+        </div>
+        <div class="col-md-8">
            <a href='/shoe/edit/<%= shoe.id %>'>edit |</a> <a href='/shoe/delete/<%= shoe.id %>'>delete</a>
         </div>
       </div>
@@ -25,10 +28,10 @@
   <% if @stores.any? %>
     <% @stores.each do |store| %>
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
           <li><a href="/store/<%= store.id %>"><%= store.name %></a></li>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8">
            <a href='/store/edit/<%= store.id %>'>edit |</a> <a href='/store/delete/<%= store.id %>'>delete</a>
         </div>
       </div>
@@ -38,7 +41,12 @@
 
 <a href='/store/create'>Add a Retailer</a><br><br>
 
-<form action="/search" method="post">
+<form action="/search/shoe" method="post">
   <label for="search">Search for a shoe</label>
+  <input type="text" name="search">
+</form>
+
+<form action="/search/store" method="post">
+  <label for="search">Search for a store</label>
   <input type="text" name="search">
 </form>

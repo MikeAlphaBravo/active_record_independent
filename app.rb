@@ -10,6 +10,26 @@ get('/')do
   erb(:index)
 end
 
+post('/search/shoe') do
+  search = params['search']
+  result = Shoe.where("brand ILIKE ?", "%#{params['search']}%")
+  if result[0]
+    redirect("/shoe/#{result[0].id}")
+  else
+    redirect('/')
+  end
+end
+
+post('/search/store') do
+  search = params['search']
+  result = Store.where("name ILIKE ?", "%#{params['search']}%")
+  if result[0]
+    redirect("/store/#{result[0].id}")
+  else
+    redirect('/')
+  end
+end
+
 #SHOE#######################
 get('/shoe/create') do
   @stores = Store.all
@@ -19,7 +39,8 @@ end
 post('/shoe/create') do
   store_ids = params['store_ids']
   brand = params['brand']
-  if Shoe.create({:store_ids => store_ids, :brand => brand}).id
+  price = params['price']
+  if Shoe.create({:store_ids => store_ids, :brand => brand, :price => price}).id
     redirect('/')
   else
     @not_saved = true
