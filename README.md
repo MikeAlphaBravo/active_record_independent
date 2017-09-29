@@ -1,12 +1,12 @@
-# _Project_Name_
+# _Shoe-ventory_
 
-#### _Implementing BLANK in Ruby, xx.xx.2017_
+#### _Implementing Activerecord in Ruby, 09.29.2017_
 
-#### By _name & name_
+#### By _Michael Allen Brooks_
 
 ## Description
 
-_Create..._
+_Create an inventory page with shoes and stores and where to find them including costs._
 
 ## User Story
 
@@ -37,11 +37,14 @@ http://www.tablesgenerator.com/markdown_tables
 
 ## Setup/Installation Requirements
 
-1. _..._
+1. _go to github https://github.com/MikeAlphaBravo/active_record_independent
+clone folder_
+2. _Set up database with rake_
+3. _Run with Sinatra in browser_
 
 ## Known Bugs
 
-_..._
+_Unable to view what shoes are in which stores just yet_
 
 ## Support and contact details
 

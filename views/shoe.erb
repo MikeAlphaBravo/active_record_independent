@@ -2,8 +2,14 @@
 
 <h4>This is the retailer(s) that carries <%= @shoe.brand %></h4>
 <div>
-  <% @shoe.stores.each do |store| %>
-    <li><%= store.name %></li>
+  <% if @shoe.stores.any? %>
+  <ul>
+    <% @shoe.stores.each do |store| %>
+      <li><%= store.name %></li>
+    <% end %>
+  </ul>
+  <% else %>
+    <p>There are currently no stores carrying this shoe</p>
   <% end %>
 </div>
 

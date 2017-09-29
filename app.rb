@@ -40,7 +40,7 @@ post('/shoe/create') do
   store_ids = params['store_ids']
   brand = params['brand']
   price = params['price']
-  if Shoe.create({:store_ids => store_ids, :brand => brand, :price => price}).id
+  if Shoe.create({:store_ids => store_ids, :brand => brand, :price => price})
     redirect('/')
   else
     @not_saved = true
@@ -82,7 +82,7 @@ end
 post('/store/create') do
   shoe_ids = params['shoe_ids']
   name = params['name']
-  if Store.create({:shoe_ids => shoe_ids, :name => name}).id
+  if Store.create({:shoe_ids => shoe_ids, :name => name})
     redirect('/')
   else
     @not_saved = true
