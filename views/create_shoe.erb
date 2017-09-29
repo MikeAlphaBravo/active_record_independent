@@ -17,6 +17,11 @@
       <% end %>
     <% end %>
   </div><br>
+  <% if @not_saved == true %>
+    <div class="alert alert-danger">
+      <h1>Did Not Save, Shoe Already Exists</h1>
+    </div>
+  <% end %>
 
   <button type="submit" class='btn btn-info'>Create!</button><br>
   <a href='/'>Take me home tonight</a>

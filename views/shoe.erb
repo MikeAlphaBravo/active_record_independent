@@ -1,0 +1,10 @@
+<h1><%= @shoe.brand %></h1>
+
+<h4>This is the retailer(s) that carries <%= @shoe.brand %></h4>
+<div>
+  <% @shoe.stores.each do |store| %>
+    <li><%= store.name %></li>
+  <% end %>
+</div>
+
+<a href='/'>Take me home tonight</a>

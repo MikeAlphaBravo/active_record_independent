@@ -3,6 +3,7 @@ class Shoe < ActiveRecord::Base
   has_many :stores, through: :records
   validates(:brand, :presence => true)
   validates(:brand, uniqueness: { case_sensitive: false })
+  validates :brand, length: { maximum: 100 }
   before_save(:titlecase_brand)
 
 private
