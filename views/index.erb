@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <h1>Pinky's Shoe-ventory</h1>
+</div>
+
+<h2>SHOES</h2>
+<% @shoes.each do |shoe| %>
+  <li><%=shoe.brand%></li>
+<% end %>
+<a href='/shoe/create'>Add a Shoe</a><br>
+
+<h2>STORES</h2>
+<% @stores.each do |store| %>
+  <li><%=store.name%></li>
+<% end %>
+<a href='/store/create'>Add a Retailer/a><br>
+
+<form action="/search" method="post">
+  <label for="search">Search for a shoe</label>
+  <input type="text" name="search">
+</form>
