@@ -1,0 +1,23 @@
+<h1>Create Store</h1>
+<form action="/store/create" method="post">
+  <div class='form-group'>
+    <label for="store">Enter a new store name:</label>
+    <input class='form-control' type="text" name="name" placeholder='Nordstroms'><br>
+  </div>
+
+  <h4>Select brand(s) to carry in this store:</h4>
+  <div>
+    <% if @shoes.any? %>
+      <% @shoes.each do |shoe| %>
+        <div class='checkbox'>
+          <label>
+            <input type='checkbox' name='shoe_ids[]' value='<% shoe.id %>'> <%= shoe.brand %>
+          </label>
+        </div>
+      <% end %>
+    <% end %>
+  </div><br>
+
+  <button type="submit" class='btn btn-info'>Create!</button><br>
+  <a href='/'>Take me home tonight</a>
+</form>

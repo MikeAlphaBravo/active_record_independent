@@ -25,10 +25,15 @@ end
 
 
 
-
-
-
-
-
-
 #STORE#######################
+get('/store/create') do
+  @shoes = Shoe.all
+  erb(:create_store)
+end
+
+post('/store/create') do
+  shoe_ids = params['shoe_ids']
+  name = params['name']
+  Store.create({:shoe_ids => shoe_ids, :name => name})
+  redirect('/')
+end

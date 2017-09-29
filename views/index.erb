@@ -3,16 +3,40 @@
 </div>
 
 <h2>SHOES</h2>
-<% @shoes.each do |shoe| %>
-  <li><%=shoe.brand%></li>
-<% end %>
-<a href='/shoe/create'>Add a Shoe</a><br>
+<div>
+  <% if @shoes.any? %>
+    <% @shoes.each do |shoe| %>
+      <div class="row">
+        <div class="col-md-3">
+          <li><a href="/shoe/<%= shoe.id %>"><%= shoe.brand %></a></li>
+        </div>
+        <div class="col-md-9">
+           <a href='/shoe/edit/<%= shoe.id %>'>edit |</a> <a href='/shoe/delete/<%= shoe.id %>'>delete</a>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div><br>
+
+<a href='/shoe/create'>Add a Shoe</a><br><br>
 
 <h2>STORES</h2>
-<% @stores.each do |store| %>
-  <li><%=store.name%></li>
-<% end %>
-<a href='/store/create'>Add a Retailer</a><br>
+<div>
+  <% if @stores.any? %>
+    <% @stores.each do |store| %>
+      <div class="row">
+        <div class="col-md-3">
+          <li><a href="/store/<%= store.id %>"><%= store.name %></a></li>
+        </div>
+        <div class="col-md-9">
+           <a href='/store/edit/<%= store.id %>'>edit |</a> <a href='/store/delete/<%= store.id %>'>delete</a>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div><br>
+
+<a href='/store/create'>Add a Retailer</a><br><br>
 
 <form action="/search" method="post">
   <label for="search">Search for a shoe</label>
