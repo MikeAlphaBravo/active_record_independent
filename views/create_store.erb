@@ -11,7 +11,7 @@
       <% @shoes.each do |shoe| %>
         <div class='checkbox'>
           <label>
-            <input type='checkbox' name='shoe_ids[]' value='<% shoe.id %>'> <%= shoe.brand %>
+            <input type='checkbox' name='shoe_ids[]' value='<%= shoe.id %>'> <%= shoe.brand %>
           </label>
         </div>
       <% end %>

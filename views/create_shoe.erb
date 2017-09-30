@@ -12,7 +12,7 @@
       <% @stores.each do |store| %>
         <div class='checkbox'>
           <label>
-            <input type='checkbox' name='store_ids[]' value='<% store.id %>'> <%= store.name %>
+            <input type='checkbox' name='store_ids[]' value='<%= store.id %>'> <%= store.name %>
           </label>
         </div>
       <% end %>
@@ -27,4 +27,3 @@
   <button type="submit" class='btn btn-info'>Create!</button><br>
   <a href='/'>Take me home tonight</a>
 </form>
- 
