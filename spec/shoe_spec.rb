@@ -1,4 +1,5 @@
 require('spec_helper')
+require('rspec')
 
 describe(Shoe) do
   it { should have_many(:stores)}
@@ -14,8 +15,9 @@ describe(Shoe) do
     expect(shoe.save()).to(eq(false))
   end
 
-  # it('will capitalize name') do
-  #   shoe = Shoe.create({:brand => 'croc larkins'})
-  #   expect(shoe.brand).to(eq('Croc Larkins'))
-  # end
+  it('capitalizes the title') do
+    shoe = Shoe.new({:brand => 'test'})
+    shoe.save()
+    expect(shoe.brand).to(eq('Test'))
+  end
 end

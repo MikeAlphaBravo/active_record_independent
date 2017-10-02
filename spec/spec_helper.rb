@@ -11,16 +11,16 @@ require('./app')
 
 Dir[File.dirname(__FILE__) + '/../lib/*.rb'].each { |file| require file }
 
-# RSpec.configure do |config|
-#   config.after(:each) do
-#     Shoe.all.each do |shoe|
-#       shoe.destroy
-#     end
-#     Store.all.each do |store|
-#       store.destory
-#     end
-#     Record.all.each do |record|
-#       record.destory
-#     end
-#   end
-# end
+RSpec.configure do |config|
+  config.after(:each) do
+    Shoe.all.each do |shoe|
+      shoe.destroy
+    end
+    Store.all.each do |store|
+      store.destroy
+    end
+    Record.all.each do |record|
+      record.destroy
+    end
+  end
+end

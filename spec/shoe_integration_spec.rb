@@ -15,13 +15,13 @@ describe('adding a new shoe', {:type => :feature}) do
   end
 end
 
-describe('adding a new store', {:type => :feature}) do
-  it('allows a user to add a store') do
-    visit('/')
-    click_link('Add a Retailer')
-    fill_in('name', :with => 'bobby brands')
+describe('updating a shoe', {:type => :feature}) do
+  it('allows a user to update a shoe brand and titlecase') do
+    shoe = Shoe.create(:brand => 'Crocs')
+    visit ('/')
+    click_link ('edit')
+    fill_in('brand', :with => 'boggs')
     click_button('Create!')
-    visit('/')
-    expect(page).to have_content('Bobby Brands')
+    expect(page).to have_content('Boggs')
   end
 end
