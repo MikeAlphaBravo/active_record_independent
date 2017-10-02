@@ -25,3 +25,12 @@ describe('updating a shoe', {:type => :feature}) do
     expect(page).to have_content('Boggs')
   end
 end
+
+describe('delete a shoe', {:type => :feature}) do
+  it('allows a user to delete a shoe brand') do
+    Shoe.create(:brand => 'Crocs')
+    visit('/')
+    click_link('delete')
+    expect(page).not_to have_content('Crocs')
+  end
+end

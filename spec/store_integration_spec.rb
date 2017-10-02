@@ -25,3 +25,12 @@ describe('updating a store', {:type => :feature}) do
     expect(page).to have_content('Biggies')
   end
 end
+
+describe('delete a store', {:type => :feature}) do
+  it('allows a user to delete a store name') do
+    Store.create(:name => 'Foot Locker')
+    visit('/')
+    click_link('delete')
+    expect(page).not_to have_content('Foot Locker')
+  end
+end
